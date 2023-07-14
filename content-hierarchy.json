@@ -1,0 +1,54 @@
+{
+    "card1": {
+        "category1": {
+            "topic1": {
+                "link1": "http://www.criteo.com/link1",
+                "link2": "http://www.criteo.com/link2",
+                "link3": "http://www.criteo.com/link3"
+            },
+            "topic2": {
+                "link4": "http://www.criteo.com/link4",
+                "link5": "http://www.criteo.com/link5",
+                "link6": "http://www.criteo.com/link6"
+            }
+        },
+        "category2": {
+            "topic3": {
+                "link7": "http://www.criteo.com/link7",
+                "link8": "http://www.criteo.com/link8",
+                "link9": "http://www.criteo.com/link9"
+            },
+            "topic4": {
+                "link10": "http://www.criteo.com/link10",
+                "link11": "http://www.criteo.com/link11",
+                "link12": "http://www.criteo.com/link12"
+            }
+        }
+    },
+    "card2": {
+        "category3": {
+            "topic5": {
+                "link13": "http://www.criteo.com/link13",
+                "link14": "http://www.criteo.com/link14",
+                "link15": "http://www.criteo.com/link15"
+            },
+            "topic6": {
+                "link16": "http://www.criteo.com/link16",
+                "link17": "http://www.criteo.com/link17",
+                "link18": "http://www.criteo.com/link18"
+            }
+        },
+        "category4": {
+            "topic7": {
+                "link19": "http://www.criteo.com/link19",
+                "link20": "http://www.criteo.com/link20",
+                "link21": "http://www.criteo.com/link21"
+            },
+            "topic8": {
+                "link22": "http://www.criteo.com/link22",
+                "link23": "http://www.criteo.com/link23",
+                "link24": "http://www.criteo.com/link24"
+            }
+        }
+    }
+}
