@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MainRouter } from './MainRouter';
+import { MainRouter } from './router/MainRouter';
 import { Search } from './components/Search';
 import './App.css';
 

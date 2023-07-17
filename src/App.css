@@ -33,11 +33,11 @@ a {
 }
 
 header {
-    height: 10%;
+    height: 20%;
 }
 
 main {
-    height: 70%;
+    height: 80%;
     width: 100%;
 }
 
@@ -79,20 +79,30 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2px;
     position: relative;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.search-results > li {
+.search-results > a {
     background-color: white;
     display: inline;
     border: solid 1px black;
     padding: 0.5rem;
 }
 
+.search-results > a:hover {
+    background-color: lightgray;
+}
+
 .search {
     overflow: visible;
+}
+
+.close-button {
+    float: right;
+    border: solid 1px black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }

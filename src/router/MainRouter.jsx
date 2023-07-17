@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import contentHierarchy from '../content-hierarchy.json';
-import { Card } from './components/Card';
-import { ContentOverview } from './components/ContentOverview';
+import contentHierarchy from '../../content-hierarchy.json';
+import { Card } from '../components/Card';
+import { ContentOverview } from '../components/ContentOverview';
 
 export const MainRouter = () => {
     return (

@@ -1,9 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Category } from './components/Category';
+import { Category } from '../components/Category';
+import descriptions from '../../descriptions.json';
 
 export const CardRouter = ({ cardTitle, cardContent }) => {
     return (
         <Routes>
+            <Route
+                path='/'
+                element={<h3>{descriptions.cards[cardTitle]}</h3>}
+            />
             <Route
                 path='/*'
                 element={<Navigate replace to={`/${cardTitle}`} />}

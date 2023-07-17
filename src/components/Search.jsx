@@ -1,18 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import Fuse from 'fuse.js';
+import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
-import contentHierarchy from '../../content-hierarchy.json';
-import { transformContentToList } from '../content-transformer';
-
-const links = transformContentToList(contentHierarchy);
-
-const fuseOptions = {
-    keys: ['path'],
-    ignoreLocation: true,
-    threshold: 0.6,
-};
-
-const fuse = new Fuse(links, fuseOptions);
+import { search } from '../helper/search';
 
 export const Search = () => {
     const [searchText, setSearchText] = useState('');
@@ -20,35 +9,25 @@ export const Search = () => {
     const [isSearchFocus, setIsSearchFocus] = useState(false);
 
     useEffect(() => {
-        const searchMatch = fuse
-            .search(searchText)
-            .splice(0, 5)
-            .map((result) => {
-                const { item } = result;
-                return item;
-            });
+        const searchMatch = search(searchText);
         setSearchResults(searchMatch);
     }, [searchText]);
 
+    const renderSearchResults =
+        searchText && isSearchFocus ? (
+            <SearchResults searchResults={searchResults} />
+        ) : (
+            ''
+        );
+
     return (
         <div className='search'>
-            <input
-                autoFocus
-                value={searchText}
-                onChange={(event) => setSearchText(event.target.value)}
-                onClick={(event) => event.target.select()}
-                onFocus={() => setIsSearchFocus(true)}
-                onBlur={(event) => {
-                    setTimeout(() => {
-                        setIsSearchFocus(false);
-                    }, 200);
-                }}
+            <SearchInput
+                searchText={searchText}
+                setSearchText={setSearchText}
+                setIsSearchFocus={setIsSearchFocus}
             />
-            {searchText && isSearchFocus ? (
-                <SearchResults searchResults={searchResults} />
-            ) : (
-                ''
-            )}
+            {renderSearchResults}
         </div>
     );
 };
