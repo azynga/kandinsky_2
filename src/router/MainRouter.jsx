@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
-import contentHierarchy from '../../content-hierarchy-new.json';
+import contentHierarchy from '../../content-hierarchy.json';
 import { Card } from '../components/Card';
 import { ContentOverview } from '../components/ContentOverview';
 import { getUrlFormat } from '../helper/format-path';

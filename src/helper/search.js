@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js';
-import contentHierarchy from '../../content-hierarchy-new.json';
+import contentHierarchy from '../../content-hierarchy.json';
 import { transformContentToList } from '../helper/content-transformer';
 
 export const search = (searchText = '') => {

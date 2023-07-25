@@ -1,4 +1,4 @@
-import contentHierarchy from '../../content-hierarchy-new.json';
+import contentHierarchy from '../../content-hierarchy.json';
 import { CardMinimized } from './CardMinimized';
 
 export const ContentOverview = ({ team }) => {
