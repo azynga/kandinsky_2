@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { getUrlFormat } from '../helper/format-path';
 
 export const CardMinimized = ({ cardTitle, cardDescription, cardContent }) => {
     return (
-        <Link to={`/${cardTitle}`}>
+        <Link to={getUrlFormat(cardTitle)}>
             <div className='minicard'>
                 <h2>{cardTitle}</h2>
                 <h3>{cardDescription}</h3>

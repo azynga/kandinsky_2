@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { getUrlFormat } from '../helper/format-path';
 
 const getContainingUrl = (link) => {
-    const resultUrl = link.path.split(' > ').splice(0, 2).join('/');
-    return `/${resultUrl}`;
+    const resultUrl = getUrlFormat(
+        link.path.split(' > ').splice(0, 2).join('/')
+    );
+    const team = useLocation().pathname.split('/')[1];
+    return `${team}/${resultUrl}`;
 };
 
 const getFormattedPath = (link) => {

@@ -1,7 +1,7 @@
 import { Topic } from './Topic';
 
 export const Category = ({ categoryTitle, categoryContent }) => {
-    const topics = Object.entries(categoryContent).map((topic) => {
+    const topics = Object.entries(categoryContent.topics).map((topic) => {
         return (
             <Topic
                 key={topic[0]}

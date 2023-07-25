@@ -1,0 +1,194 @@
+{
+    "CS": {
+        "Digital Advertising": {
+            "cardDescription": "Learn about Digital Advertising",
+            "categories": {
+                "Display Advertising": {
+                    "categoryDescription": "Explore Display Advertising",
+                    "topics": {
+                        "Introduction to Display Ads": {
+                            "topicDescription": "Introduction to Display Ads",
+                            "links": {
+                                "Display Ad Formats": "http://www.criteo.com/display-ad-formats",
+                                "Targeting Options": "http://www.criteo.com/targeting-options",
+                                "Ad Creative Best Practices": "http://www.criteo.com/creative-best-practices"
+                            }
+                        },
+                        "Retargeting Strategies": {
+                            "topicDescription": "Retargeting Strategies",
+                            "links": {
+                                "Retargeting Benefits": "http://www.criteo.com/retargeting-benefits",
+                                "Segmentation Tactics": "http://www.criteo.com/segmentation-tactics",
+                                "Personalization Methods": "http://www.criteo.com/personalization-methods"
+                            }
+                        }
+                    }
+                },
+                "Programmatic Advertising": {
+                    "categoryDescription": "Master Programmatic Advertising",
+                    "topics": {
+                        "Real-time Bidding": {
+                            "topicDescription": "Real-time Bidding (RTB) Explained",
+                            "links": {
+                                "RTB Auction Process": "http://www.criteo.com/rtb-auction-process",
+                                "Advantages of RTB": "http://www.criteo.com/rtb-advantages",
+                                "RTB Targeting Methods": "http://www.criteo.com/rtb-targeting"
+                            }
+                        },
+                        "Data-driven Advertising": {
+                            "topicDescription": "Data-driven Advertising Insights",
+                            "links": {
+                                "Data Collection Strategies": "http://www.criteo.com/data-collection-strategies",
+                                "Audience Segmentation": "http://www.criteo.com/audience-segmentation",
+                                "Programmatic Campaign Optimization": "http://www.criteo.com/programmatic-optimization"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Demand-side Platforms": {
+            "cardDescription": "Discover Demand-side Platforms (DSPs)",
+            "categories": {
+                "Programmatic Buying": {
+                    "categoryDescription": "Programmatic Buying Strategies",
+                    "topics": {
+                        "Understanding DSPs": {
+                            "topicDescription": "Understanding DSPs",
+                            "links": {
+                                "DSPs Explained": "http://www.criteo.com/dsps-explained",
+                                "DSP Advantages": "http://www.criteo.com/dsp-advantages",
+                                "Choosing the Right DSP": "http://www.criteo.com/choosing-dsp"
+                            }
+                        },
+                        "Campaign Optimization": {
+                            "topicDescription": "Campaign Optimization Techniques",
+                            "links": {
+                                "Targeting Strategies": "http://www.criteo.com/targeting-strategies",
+                                "Bid Management Tips": "http://www.criteo.com/bid-management-tips",
+                                "Performance Tracking Metrics": "http://www.criteo.com/performance-tracking"
+                            }
+                        }
+                    }
+                },
+                "Programmatic Selling": {
+                    "categoryDescription": "Explore Programmatic Selling",
+                    "topics": {
+                        "Understanding SSPs": {
+                            "topicDescription": "Understanding SSPs",
+                            "links": {
+                                "SSPs Explained": "http://www.criteo.com/ssps-explained",
+                                "SSP Benefits": "http://www.criteo.com/ssp-benefits",
+                                "Connecting with Buyers": "http://www.criteo.com/connecting-with-buyers"
+                            }
+                        },
+                        "Optimizing SSP Campaigns": {
+                            "topicDescription": "Optimizing SSP Campaigns",
+                            "links": {
+                                "Inventory Management": "http://www.criteo.com/inventory-management",
+                                "Ad Format Options": "http://www.criteo.com/ad-format-options",
+                                "Yield Optimization": "http://www.criteo.com/yield-optimization"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "TS": {
+        "Technology Trends": {
+            "cardDescription": "Explore the Latest Technology Trends",
+            "categories": {
+                "Artificial Intelligence": {
+                    "categoryDescription": "Discover the Power of AI",
+                    "topics": {
+                        "Introduction to AI": {
+                            "topicDescription": "Introduction to Artificial Intelligence",
+                            "links": {
+                                "AI Applications": "http://www.example.com/ai-applications",
+                                "AI in Healthcare": "http://www.example.com/ai-healthcare",
+                                "AI Ethics and Concerns": "http://www.example.com/ai-ethics"
+                            }
+                        },
+                        "Machine Learning": {
+                            "topicDescription": "Understanding Machine Learning",
+                            "links": {
+                                "Supervised Learning": "http://www.example.com/supervised-learning",
+                                "Unsupervised Learning": "http://www.example.com/unsupervised-learning",
+                                "Deep Learning": "http://www.example.com/deep-learning"
+                            }
+                        }
+                    }
+                },
+                "Internet of Things": {
+                    "categoryDescription": "Exploring IoT Innovations",
+                    "topics": {
+                        "IoT Basics": {
+                            "topicDescription": "Getting Started with IoT",
+                            "links": {
+                                "IoT Devices and Sensors": "http://www.example.com/iot-devices",
+                                "IoT Connectivity": "http://www.example.com/iot-connectivity",
+                                "IoT Data Analytics": "http://www.example.com/iot-data-analytics"
+                            }
+                        },
+                        "Smart Home Solutions": {
+                            "topicDescription": "Creating Smart Home Solutions",
+                            "links": {
+                                "Home Automation": "http://www.example.com/home-automation",
+                                "IoT Security": "http://www.example.com/iot-security",
+                                "IoT Energy Management": "http://www.example.com/iot-energy"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Data Science Techniques": {
+            "cardDescription": "Learn Data Science Skills",
+            "categories": {
+                "Data Analysis": {
+                    "categoryDescription": "Master Data Analysis Techniques",
+                    "topics": {
+                        "Data Visualization": {
+                            "topicDescription": "Creating Insights with Data Visualization",
+                            "links": {
+                                "Data Visualization Tools": "http://www.example.com/data-visualization-tools",
+                                "Storytelling with Data": "http://www.example.com/storytelling-data",
+                                "Interactive Dashboards": "http://www.example.com/interactive-dashboards"
+                            }
+                        },
+                        "Data Wrangling": {
+                            "topicDescription": "Data Wrangling and Preprocessing",
+                            "links": {
+                                "Data Cleaning": "http://www.example.com/data-cleaning",
+                                "Data Transformation": "http://www.example.com/data-transformation",
+                                "Handling Missing Data": "http://www.example.com/handling-missing-data"
+                            }
+                        }
+                    }
+                },
+                "Machine Learning Models": {
+                    "categoryDescription": "Building ML Models",
+                    "topics": {
+                        "Supervised Learning": {
+                            "topicDescription": "Supervised Learning Algorithms",
+                            "links": {
+                                "Linear Regression": "http://www.example.com/linear-regression",
+                                "Decision Trees": "http://www.example.com/decision-trees",
+                                "Support Vector Machines": "http://www.example.com/svm"
+                            }
+                        },
+                        "Unsupervised Learning": {
+                            "topicDescription": "Unsupervised Learning Techniques",
+                            "links": {
+                                "Clustering Algorithms": "http://www.example.com/clustering",
+                                "Principal Component Analysis": "http://www.example.com/pca",
+                                "Anomaly Detection": "http://www.example.com/anomaly-detection"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
