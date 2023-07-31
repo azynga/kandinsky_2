@@ -1,5 +1,6 @@
-link highlighting
-team filter
-side bar
-close card on click out
-host json externally
+[ ] team filter
+[ ] side bar
+[ ] add dynamic classnames to start pages
+[ ] link highlighting
+[ ] import json from external source
+[ ] close card on click out

@@ -1,6 +1,7 @@
 {
     "CS": {
         "Digital Advertising": {
+            "forCommercials": true,
             "cardDescription": "Learn about Digital Advertising",
             "categories": {
                 "Display Advertising": {
@@ -48,6 +49,7 @@
             }
         },
         "Demand-side Platforms": {
+            "forCommercials": false,
             "cardDescription": "Discover Demand-side Platforms (DSPs)",
             "categories": {
                 "Programmatic Buying": {
@@ -97,6 +99,7 @@
     },
     "TS": {
         "Technology Trends": {
+            "forCommercials": true,
             "cardDescription": "Explore the Latest Technology Trends",
             "categories": {
                 "Artificial Intelligence": {
@@ -144,6 +147,7 @@
             }
         },
         "Data Science Techniques": {
+            "forCommercials": false,
             "cardDescription": "Learn Data Science Skills",
             "categories": {
                 "Data Analysis": {
