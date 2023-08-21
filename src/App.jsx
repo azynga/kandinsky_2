@@ -34,7 +34,7 @@ function App() {
             return;
         }
 
-        const contentSelection = contentHierarchy[teamSelection].filter(
+        const contentSelection = contentHierarchy[teamSelection]?.filter(
             (card) => !isCommercialView || card.forCommercials
         );
         const contentList = getContentList(contentSelection);
