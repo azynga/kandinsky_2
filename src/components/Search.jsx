@@ -1,23 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
-import { search } from '../helper/search';
+import { ContentContext } from '../App';
 
 export const Search = () => {
     const [searchText, setSearchText] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [isSearchFocus, setIsSearchFocus] = useState(false);
-    const team = useLocation().pathname.split('/')[1];
+    const { searchInstance, teamSelection } = useContext(ContentContext);
 
     useEffect(() => {
-        const searchMatch = search(searchText);
+        const searchMatch = searchInstance
+            ?.search(searchText)
+            .slice(0, 10)
+            .map((result) => {
+                const { item } = result;
+                return item;
+            });
         setSearchResults(searchMatch);
     }, [searchText]);
 
     useEffect(() => {
         setSearchText('');
-    }, [team]);
+    }, [teamSelection]);
 
     const renderSearchResults =
         searchText && isSearchFocus ? (

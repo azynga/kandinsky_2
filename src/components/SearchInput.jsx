@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const SearchInput = ({
     searchText,
     setSearchText,
@@ -7,6 +5,7 @@ export const SearchInput = ({
 }) => {
     return (
         <input
+            placeholder='Search for your topic...'
             autoFocus
             value={searchText}
             onChange={(event) => setSearchText(event.target.value)}

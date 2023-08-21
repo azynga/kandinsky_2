@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
-import { getUrlFormat } from '../helper/format-path';
+import { getKebabCase } from '../helper/format-path';
 
-export const CardMinimized = ({ cardTitle, cardDescription, cardContent }) => {
+export const CardMinimized = ({ card }) => {
+    const { cardTitle, cardDescription, categories } = card;
+    const categoryList = categories.map((category) => {
+        const { categoryTitle } = category;
+        return <li key={categoryTitle}>{categoryTitle}</li>;
+    });
+
     return (
-        <Link to={getUrlFormat(cardTitle)}>
+        <Link to={getKebabCase(cardTitle)}>
             <div className='minicard'>
                 <h2>{cardTitle}</h2>
                 <h3>{cardDescription}</h3>
-                <ul>
-                    {Object.keys(cardContent).map((category) => {
-                        return <li key={category}>{category}</li>;
-                    })}
-                </ul>
+                <ul>{categoryList}</ul>
             </div>
         </Link>
     );

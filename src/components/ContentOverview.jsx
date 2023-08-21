@@ -1,16 +1,20 @@
-import contentHierarchy from '../../content-hierarchy.json';
+import { useContext } from 'react';
+import { ContentContext } from '../App';
 import { CardMinimized } from './CardMinimized';
 
-export const ContentOverview = ({ team }) => {
-    const miniCards = Object.entries(contentHierarchy[team]).map((card) => {
-        return (
-            <CardMinimized
-                key={card[0]}
-                cardTitle={card[0]}
-                cardDescription={card[1].cardDescription}
-                cardContent={card[1].categories}
-            />
-        );
+export const ContentOverview = () => {
+    const { selectedContent } = useContext(ContentContext);
+    const miniCards = selectedContent?.map((card) => {
+        return <CardMinimized key={card.cardTitle} card={card} />;
     });
-    return <div className='content-overview'>{miniCards}</div>;
+    return (
+        <div className='content-overview'>
+            {miniCards}
+            {miniCards}
+            {miniCards}
+            {miniCards}
+            {miniCards}
+            {miniCards}
+        </div>
+    );
 };

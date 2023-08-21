@@ -1,29 +1,31 @@
-import { Link, useLocation } from 'react-router-dom';
-import { getUrlFormat } from '../helper/format-path';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ContentContext } from '../App';
+import { getKebabCase, getSnakeCase } from '../helper/format-path';
 
-const getContainingUrl = (link) => {
-    const resultUrl = getUrlFormat(
-        link.path.split(' > ').splice(0, 2).join('/')
+const getContainingUrl = (link, team) => {
+    const resultUrl = getKebabCase(
+        link.path.split(' > ').reverse().splice(0, 2).join('/')
     );
-    const team = useLocation().pathname.split('/')[1];
-    return `${team}/${resultUrl}`;
+    const highlightedLink = getSnakeCase(link.path.split(' > ')[0]);
+    return `${team}/${resultUrl}?highlight=${highlightedLink}`;
 };
 
 const getFormattedPath = (link) => {
-    const formattedPath = link.path.split(' > ').reverse().join(' / ');
+    const formattedPath = link.path.split(' > ').join(' / ');
     return formattedPath;
 };
 
 export const SearchResults = ({ searchResults }) => {
-    return (
-        <ul className='search-results'>
-            {searchResults.map((link) => {
-                return (
-                    <Link key={link.path} to={getContainingUrl(link)}>
-                        <li>{getFormattedPath(link)}</li>
-                    </Link>
-                );
-            })}
-        </ul>
-    );
+    const { teamSelection } = useContext(ContentContext);
+
+    const resultLinks = searchResults?.map((link) => {
+        return (
+            <Link key={link.path} to={getContainingUrl(link, teamSelection)}>
+                <li>{getFormattedPath(link)}</li>
+            </Link>
+        );
+    });
+
+    return <ul className='search-results'>{resultLinks}</ul>;
 };

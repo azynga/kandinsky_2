@@ -1,0 +1,412 @@
+$dark: #2a2e34;
+$light: #faf7f5;
+$accent: #59a9ac;
+$tsaccent: #59a9ac;
+$csaccent: #ac7359;
+
+@mixin shadow {
+    box-shadow: 0 0 1rem #2a2e3440;
+}
+@mixin hover-shadow {
+    box-shadow: 0 5px 2rem #2a2e3440;
+}
+
+* {
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+body {
+    margin: 0;
+    font-family: Verdana, sans-serif;
+}
+
+.content-overview {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+a:not(.topics a) {
+    text-decoration: none;
+    color: $dark;
+}
+
+#main-container {
+    min-height: 100vh;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-left: 50px;
+    &.homepage {
+        margin-left: 0;
+        main {
+            min-height: 100vh;
+        }
+    }
+
+    &.ts {
+        background-color: $tsaccent;
+        background-image: radial-gradient(
+            circle,
+            hsl(182, 50%, 65%),
+            hsl(182, 33%, 51%)
+        );
+    }
+
+    &.cs {
+        background-color: $csaccent;
+        background-image: radial-gradient(
+            circle,
+            hsl(19, 50%, 65%),
+            hsl(19, 33%, 51%)
+        );
+    }
+}
+
+main {
+    position: relative;
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    @media (max-width: 872px) {
+        padding: 3rem 1rem;
+    }
+
+    #content-select {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+#sidebar {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    inset: 0 0 0;
+    background-color: #2a2e34;
+    color: #f2efeb;
+    padding: 20px 5px;
+    overflow: hidden;
+    transition: width 200ms;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    &:hover {
+        width: 100px;
+        transition: width 200ms;
+    }
+
+    h1 {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $light;
+        text-align: center;
+    }
+
+    > div,
+    a {
+        * {
+            margin: 0;
+        }
+        border-bottom: solid $light 2px;
+        height: 8rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    button {
+        all: unset;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 200ms;
+
+        &.selected {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+
+    p,
+    button {
+        opacity: 0;
+        font-size: small;
+        margin: 0.5rem 0;
+        transition: opacity 100ms;
+        transition-delay: 50ms;
+        color: $light;
+    }
+
+    &:hover p,
+    &:hover button {
+        opacity: 1;
+        transition: opacity 100ms;
+        transition-delay: 50ms;
+    }
+}
+
+footer {
+    margin: 1rem 0 2rem;
+    position: relative;
+    width: 100%;
+    font-size: small;
+    text-align: center;
+}
+
+.card {
+    height: 500px;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    @include shadow;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: $light;
+    position: relative;
+    z-index: 0;
+    font-size: small;
+
+    h2 {
+        margin: 0;
+    }
+
+    .card-content {
+        width: 100%;
+        padding: 3rem;
+        overflow-y: scroll;
+
+        .topics {
+            display: flex;
+            gap: 2rem;
+            // flex-wrap: wrap;
+            @media (max-width: 872px) {
+                flex-direction: column;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+
+            li {
+                width: fit-content;
+                padding: 2px 0;
+                &.highlight {
+                    padding: 2px 5px;
+                    background-color: #7bf183;
+                    border-radius: 2px;
+                    a {
+                        text-decoration: none;
+                        color: $dark;
+                    }
+                }
+            }
+
+            a {
+                color: #006cd6;
+            }
+            a:hover {
+                color: #0080ff;
+            }
+            a:active {
+                color: $dark;
+            }
+        }
+    }
+
+    nav {
+        height: 100%;
+        background-color: $dark;
+        width: 20%;
+        min-width: 175px;
+
+        ul {
+            font-size: small;
+            margin: 0;
+            padding: 6rem 1rem 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        li,
+        a {
+            color: $light;
+        }
+
+        a.active {
+            text-decoration: underline;
+            font-weight: bold;
+            color: white;
+        }
+    }
+
+    .close-button {
+        position: relative;
+        top: -2rem;
+        right: -2rem;
+        float: right;
+        font-weight: bold;
+        background-color: $dark;
+        color: $light;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+        transition: opacity 200ms;
+        &:hover {
+            opacity: 1;
+            transition: opacity 200ms;
+        }
+    }
+}
+
+.minicard {
+    > * {
+        margin: 0;
+    }
+    height: 14rem;
+    width: calc((1000px - 2rem) / 3);
+    font-size: small;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: $light;
+    position: relative;
+    top: 0;
+    @include shadow;
+    transition: box-shadow, top, background-color, 200ms 5ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    ul {
+        color: gray;
+        padding: 1rem;
+        li {
+            margin: 0.5rem 0;
+        }
+    }
+
+    &:hover {
+        color: $dark;
+        background-color: white;
+        @include hover-shadow;
+        top: -5px;
+        transition: box-shadow, top, background-color, 200ms 5ms;
+    }
+}
+
+#closing-clickzone {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+
+    input {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        height: 2rem;
+        padding: 1rem;
+        font-size: medium;
+        border-radius: 5px;
+        border-style: none;
+        background-color: $light;
+        transition: box-shadow, background-color, 400ms;
+        @include shadow;
+        &::placeholder {
+            opacity: 0.5;
+        }
+        &:focus {
+            outline: none;
+            @include hover-shadow;
+            background-color: white;
+            transition: box-shadow, background-color, 400ms;
+        }
+    }
+}
+
+.search-results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0;
+    z-index: 2;
+    background-color: $light;
+    border-radius: 5px;
+    overflow: hidden;
+    @include shadow;
+}
+
+.search-results > a {
+    display: inline;
+    padding: 0.5rem;
+    width: 100%;
+    border-bottom: solid #2a2e3429 1px;
+}
+
+.search-results > a:hover {
+    background-color: lightgray;
+}
+
+.button {
+    width: 110px;
+    padding: 0.5rem;
+    margin: 2px;
+    border-radius: 0.5rem;
+
+    &.confirm {
+        margin-top: 6rem;
+    }
+
+    &.selected {
+        background-color: hsla(0, 0%, 100%, 50%);
+    }
+}
