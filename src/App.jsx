@@ -21,20 +21,21 @@ function App() {
     const [isCommercialView, setIsCommercialView] = useState(false);
     const [searchInstance, setSearchInstance] = useState(null);
     const notOnRoot = useLocation().pathname !== '/';
-
-    // console.log(useLocation());
-    // const mainClass = useLocation().pathName
-
+    const currentPath = useLocation().pathname;
+    console.log(currentPath);
     useEffect(() => {
         loadData(setContentHierarchy, setErrorMessage);
     }, []);
 
     useEffect(() => {
-        if (!contentHierarchy || !teamSelection) {
+        if (
+            !contentHierarchy ||
+            (teamSelection !== 'cs' && teamSelection !== 'ts')
+        ) {
             return;
         }
 
-        const contentSelection = contentHierarchy[teamSelection]?.filter(
+        const contentSelection = contentHierarchy[teamSelection].filter(
             (card) => !isCommercialView || card.forCommercials
         );
         const contentList = getContentList(contentSelection);

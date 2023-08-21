@@ -2,7 +2,7 @@ $dark: #2a2e34;
 $light: #faf7f5;
 $accent: #59a9ac;
 $tsaccent: #59a9ac;
-$csaccent: #ac7359;
+$csaccent: #c8844d;
 
 @mixin shadow {
     box-shadow: 0 0 1rem #2a2e3440;
@@ -52,20 +52,18 @@ a:not(.topics a) {
     }
 
     &.ts {
-        background-color: $tsaccent;
         background-image: radial-gradient(
             circle,
-            hsl(182, 50%, 65%),
-            hsl(182, 33%, 51%)
+            adjust-color($tsaccent, $lightness: 20%),
+            $tsaccent
         );
     }
 
     &.cs {
-        background-color: $csaccent;
         background-image: radial-gradient(
             circle,
-            hsl(19, 50%, 65%),
-            hsl(19, 33%, 51%)
+            adjust-color($csaccent, $lightness: 20%),
+            $csaccent
         );
     }
 }
@@ -379,7 +377,7 @@ footer {
     padding: 0;
     margin: 2px 0;
     z-index: 2;
-    background-color: $light;
+    // background-color: $light;
     border-radius: 5px;
     overflow: hidden;
     @include shadow;
@@ -390,10 +388,23 @@ footer {
     padding: 0.5rem;
     width: 100%;
     border-bottom: solid #2a2e3429 1px;
+    background-color: $light;
 }
 
-.search-results > a:hover {
-    background-color: lightgray;
+.ts .search-results > a:hover {
+    background-color: adjust-color(
+        $tsaccent,
+        $lightness: 30%,
+        $saturation: -20%
+    );
+}
+
+.cs .search-results > a:hover {
+    background-color: adjust-color(
+        $csaccent,
+        $lightness: 30%,
+        $saturation: -20%
+    );
 }
 
 .button {
@@ -401,12 +412,21 @@ footer {
     padding: 0.5rem;
     margin: 2px;
     border-radius: 0.5rem;
+    border: none;
+    // background-color: hsla(0, 0%, 100%, 50%);
+    background-color: $light;
+    // color: gray;
+    opacity: 0.5;
 
     &.confirm {
         margin-top: 6rem;
+        opacity: 1;
     }
 
     &.selected {
-        background-color: hsla(0, 0%, 100%, 50%);
+        // background-color: $light;
+        // color: $dark;
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     }
 }
