@@ -201,12 +201,11 @@ footer {
     .card-content {
         width: 100%;
         padding: 3rem;
-        overflow-y: scroll;
+        overflow-y: auto;
 
         .topics {
             display: flex;
             gap: 2rem;
-            // flex-wrap: wrap;
             @media (max-width: 872px) {
                 flex-direction: column;
             }
@@ -377,7 +376,6 @@ footer {
     padding: 0;
     margin: 2px 0;
     z-index: 2;
-    // background-color: $light;
     border-radius: 5px;
     overflow: hidden;
     @include shadow;
@@ -413,9 +411,7 @@ footer {
     margin: 2px;
     border-radius: 0.5rem;
     border: none;
-    // background-color: hsla(0, 0%, 100%, 50%);
     background-color: $light;
-    // color: gray;
     opacity: 0.5;
 
     &.confirm {
@@ -424,22 +420,7 @@ footer {
     }
 
     &.selected {
-        // background-color: $light;
-        // color: $dark;
         opacity: 1;
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 }
-
-// #sidebar-select span {
-//     width: 40px;
-//     height: 40px;
-//     border-radius: 50%;
-//     background-color: $light;
-//     text-align: center;
-//     color: $dark;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     font-size: small;
-// }
