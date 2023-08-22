@@ -69,7 +69,7 @@ function App() {
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : !contentHierarchy ? (
-                        <p>'Loading...'</p>
+                        <p>Loading...</p>
                     ) : (
                         <MainRouter />
                     )}
