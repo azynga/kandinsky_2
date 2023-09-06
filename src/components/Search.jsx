@@ -2,12 +2,14 @@ import { useState, useEffect, useContext } from 'react';
 import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
 import { ContentContext } from '../App';
+import searchIcon from '../assets/icons/search-icon.png';
 
 export const Search = () => {
     const [searchText, setSearchText] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [isSearchFocus, setIsSearchFocus] = useState(false);
-    const { searchInstance, teamSelection } = useContext(ContentContext);
+    const { searchInstance, teamSelection, isCommercialView } =
+        useContext(ContentContext);
 
     useEffect(() => {
         const searchMatch = searchInstance
@@ -22,7 +24,7 @@ export const Search = () => {
 
     useEffect(() => {
         setSearchText('');
-    }, [teamSelection]);
+    }, [teamSelection, isCommercialView]);
 
     const renderSearchResults =
         searchText && isSearchFocus ? (
@@ -33,6 +35,7 @@ export const Search = () => {
 
     return (
         <div className='search'>
+            <img className='search-icon' src={searchIcon} alt='search icon' />
             <SearchInput
                 searchText={searchText}
                 setSearchText={setSearchText}

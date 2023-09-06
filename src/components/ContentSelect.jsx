@@ -3,6 +3,7 @@ import { ContentContext } from '../App';
 import { TeamSelect } from './TeamSelect';
 import { CommercialSelect } from './CommercialSelect';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/icons/kandinsky-logo.png';
 
 export const ContentSelect = () => {
     const { teamSelection } = useContext(ContentContext);
@@ -14,17 +15,18 @@ export const ContentSelect = () => {
 
     return (
         <div id='content-select'>
-            <div>
+            <img src={logo} alt='logo' className='logo' />
+            <div className='team-select'>
                 <h2>Seeking advice from:</h2>
                 <TeamSelect />
             </div>
-            <div>
+            <div className='commercial-select'>
                 <h2>Choose your own team:</h2>
                 <CommercialSelect />
             </div>
-            <button className='button confirm' onClick={handleConfirm}>
+            {/* <button className='button confirm' onClick={handleConfirm}>
                 Confirm
-            </button>
+            </button> */}
         </div>
     );
 };

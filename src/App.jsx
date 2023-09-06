@@ -12,17 +12,18 @@ import './App.scss';
 export const ContentContext = createContext();
 
 function App() {
+    const currentPath = useLocation().pathname;
+    const onRoot = currentPath === '/';
+
     const [contentHierarchy, setContentHierarchy] = useState(null);
     const [selectedContent, setSelectedContent] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
     const [teamSelection, setTeamSelection] = useState(
-        useLocation().pathname.split('/')[1] || 'cs'
+        currentPath.split('/')[1] || 'cs'
     );
-    const [isCommercialView, setIsCommercialView] = useState(false);
+    const [isCommercialView, setIsCommercialView] = useState(null);
     const [searchInstance, setSearchInstance] = useState(null);
-    const notOnRoot = useLocation().pathname !== '/';
-    const currentPath = useLocation().pathname;
-    console.log(currentPath);
+
     useEffect(() => {
         loadData(setContentHierarchy, setErrorMessage);
     }, []);
@@ -64,8 +65,8 @@ function App() {
                 }
             >
                 <main>
-                    {notOnRoot && <Search />}
-                    {notOnRoot && <ClosingClickzone />}
+                    {!onRoot && <Search />}
+                    {!onRoot && <ClosingClickzone />}
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : !contentHierarchy ? (
@@ -74,8 +75,8 @@ function App() {
                         <MainRouter />
                     )}
                 </main>
-                {notOnRoot && <SideBar />}
-                {notOnRoot && (
+                {!onRoot && <SideBar />}
+                {!onRoot && (
                     <footer>
                         <p>
                             Please let us know here what we’re missing. Thank

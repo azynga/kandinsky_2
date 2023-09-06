@@ -5,7 +5,7 @@ export const TeamSelect = () => {
     const { teamSelection, setTeamSelection } = useContext(ContentContext);
 
     return (
-        <div className='team-select'>
+        <div>
             <button
                 className={
                     teamSelection === 'cs' ? 'button selected' : 'button'

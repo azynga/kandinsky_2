@@ -11,14 +11,37 @@ $csaccent: #c8844d;
     box-shadow: 0 5px 2rem #2a2e3440;
 }
 
+@font-face {
+    font-family: HurmeGeometric;
+    src: url('./assets/fonts/HurmeGeometricSans1_Regular.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: HurmeGeometricBlack;
+    src: url('./assets/fonts/HurmeGeometricSans4_Black.otf');
+}
+
+@font-face {
+    font-family: HurmeGeometric;
+    src: url('./assets/fonts/HurmeGeometricSans1_Bold.otf');
+    font-weight: bold;
+}
+
 * {
+    font-family: HurmeGeometric, Verdana, sans-serif;
     box-sizing: border-box;
     z-index: 1;
 }
 
+h1,
+h2 {
+    font-family: HurmeGeometricBlack;
+}
+
 body {
     margin: 0;
-    font-family: Verdana, sans-serif;
+    // font-family: HurmeGeometric, Verdana, sans-serif;
 }
 
 .content-overview {
@@ -57,6 +80,10 @@ a:not(.topics a) {
             adjust-color($tsaccent, $lightness: 20%),
             $tsaccent
         );
+        // background-image: url('./assets/backgrounds/TS_Homepage_BG.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
     }
 
     &.cs {
@@ -65,6 +92,10 @@ a:not(.topics a) {
             adjust-color($csaccent, $lightness: 20%),
             $csaccent
         );
+        // background-image: url('./assets/backgrounds/TS_Homepage_BG.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
     }
 }
 
@@ -90,10 +121,31 @@ main {
         inset: 0;
         height: 100%;
 
+        > .logo {
+            width: 100px;
+        }
+
         > div {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        > .team-select {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 1rem 3rem;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                > button {
+                    width: 100%;
+                }
+            }
         }
     }
 }
@@ -105,25 +157,27 @@ main {
     inset: 0 0 0;
     background-color: #2a2e34;
     color: #f2efeb;
-    padding: 20px 5px;
+    padding: 0 5px;
     overflow: hidden;
     transition: width 200ms;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    transition-delay: 100ms;
 
     &:hover {
         width: 100px;
         transition: width 200ms;
-    }
 
-    h1 {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: $light;
-        text-align: center;
+        img {
+            top: 3rem;
+            transition: top 100ms;
+            transition-delay: 100ms;
+        }
+        // div,
+        // p {
+        //     bottom: 30%;
+        // }
     }
 
     > div,
@@ -139,6 +193,16 @@ main {
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        position: relative;
+
+        img {
+            width: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: top 100ms;
+        }
     }
 
     button {
@@ -146,8 +210,6 @@ main {
         cursor: pointer;
         width: 100%;
         text-align: center;
-        opacity: 0;
-        transition: opacity 200ms;
 
         &.selected {
             font-weight: bold;
@@ -156,20 +218,23 @@ main {
     }
 
     p,
-    button {
+    #sidebar-select > div {
         opacity: 0;
         font-size: small;
         margin: 0.5rem 0;
         transition: opacity 100ms;
-        transition-delay: 50ms;
+        // transition-delay: 50ms;
         color: $light;
+        position: absolute;
+        bottom: 1rem;
+        // transition: top 100ms;
     }
 
     &:hover p,
-    &:hover button {
+    &:hover #sidebar-select > div {
         opacity: 1;
         transition: opacity 100ms;
-        transition-delay: 50ms;
+        transition-delay: 100ms;
     }
 }
 
@@ -245,7 +310,7 @@ footer {
     nav {
         height: 100%;
         background-color: $dark;
-        width: 20%;
+        width: 30%;
         min-width: 175px;
 
         ul {
@@ -307,12 +372,24 @@ footer {
     @include shadow;
     transition: box-shadow, top, background-color, 200ms 5ms;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+
+    .minicard-headline {
+        * {
+            margin: 0;
+        }
+        h2 {
+            font-size: medium;
+        }
+        h3 {
+            font-size: small;
+        }
+    }
 
     ul {
         color: gray;
-        padding: 1rem;
+        padding: 0 1rem;
         li {
             margin: 0.5rem 0;
         }
@@ -336,17 +413,27 @@ footer {
 .search {
     display: flex;
     justify-content: center;
+    align-items: center;
     overflow: visible;
     position: relative;
     width: 100%;
     max-width: 1000px;
+
+    .search-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        left: 1rem;
+        z-index: 2;
+        opacity: 0.5;
+    }
 
     input {
         position: relative;
         width: 100%;
         max-width: 1000px;
         height: 2rem;
-        padding: 1rem;
+        padding: 1rem 3.5rem;
         font-size: medium;
         border-radius: 5px;
         border-style: none;
@@ -406,13 +493,16 @@ footer {
 }
 
 .button {
-    width: 110px;
-    padding: 0.5rem;
-    margin: 2px;
-    border-radius: 0.5rem;
+    width: 200px;
+    padding: 1rem;
+    margin: 3px 0.5rem;
+    border-radius: 3px;
     border: none;
     background-color: $light;
     opacity: 0.5;
+    position: relative;
+    // top: 0;
+    transition: 200ms;
 
     &.confirm {
         margin-top: 6rem;
@@ -422,5 +512,21 @@ footer {
     &.selected {
         opacity: 1;
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    &:hover {
+        // opacity: 0.75;
+        transform: scale(1.03);
+        transition: 200ms;
+        // box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+        &:not(.selected) {
+            opacity: 0.75;
+        }
+    }
+
+    &:active {
+        opacity: 1;
+        transform: scale(0.97);
+        transition: 100ms;
     }
 }

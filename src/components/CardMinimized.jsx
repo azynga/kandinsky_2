@@ -11,8 +11,10 @@ export const CardMinimized = ({ card }) => {
     return (
         <Link to={getKebabCase(cardTitle)}>
             <div className='minicard'>
-                <h2>{cardTitle}</h2>
-                <h3>{cardDescription}</h3>
+                <div className='minicard-headline'>
+                    <h2>{cardTitle}</h2>
+                    <h3>{cardDescription}</h3>
+                </div>
                 <ul>{categoryList}</ul>
             </div>
         </Link>
