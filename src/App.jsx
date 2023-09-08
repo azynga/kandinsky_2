@@ -23,6 +23,7 @@ function App() {
     );
     const [isCommercialView, setIsCommercialView] = useState(null);
     const [searchInstance, setSearchInstance] = useState(null);
+    const [background, setBackground] = useState('plain');
 
     useEffect(() => {
         loadData(setContentHierarchy, setErrorMessage);
@@ -60,8 +61,8 @@ function App() {
                 id='main-container'
                 className={
                     useLocation().pathname === '/'
-                        ? 'homepage ' + teamSelection
-                        : teamSelection
+                        ? 'homepage ' + teamSelection + ' ' + background
+                        : teamSelection + ' ' + background
                 }
             >
                 <main>
@@ -84,6 +85,16 @@ function App() {
                         </p>
                     </footer>
                 )}
+                <button
+                    className='switch-background'
+                    onClick={() =>
+                        setBackground(
+                            background === 'plain' ? 'image' : 'plain'
+                        )
+                    }
+                >
+                    Switch background
+                </button>
             </div>
         </ContentContext.Provider>
     );

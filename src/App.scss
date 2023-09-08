@@ -37,6 +37,7 @@ $csaccent: #c8844d;
 h1,
 h2 {
     font-family: HurmeGeometricBlack;
+    font-weight: bold;
 }
 
 body {
@@ -80,7 +81,9 @@ a:not(.topics a) {
             adjust-color($tsaccent, $lightness: 20%),
             $tsaccent
         );
-        // background-image: url('./assets/backgrounds/TS_Homepage_BG.png');
+        &.image {
+            background-image: url('./assets/backgrounds/TS_Homepage_BG.png');
+        }
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -92,7 +95,9 @@ a:not(.topics a) {
             adjust-color($csaccent, $lightness: 20%),
             $csaccent
         );
-        // background-image: url('./assets/backgrounds/TS_Homepage_BG.png');
+        &.image {
+            background-image: url('./assets/backgrounds/CS_Homepage_BG.png');
+        }
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -515,13 +520,11 @@ footer {
     }
 
     &:hover {
-        // opacity: 0.75;
-        transform: scale(1.03);
-        transition: 200ms;
-        // box-shadow: 0 0 15px rgba(255, 255, 255, 1);
-        &:not(.selected) {
+        &:not(.selected, :active) {
             opacity: 0.75;
         }
+        transform: scale(1.02);
+        transition: 200ms;
     }
 
     &:active {
@@ -529,4 +532,12 @@ footer {
         transform: scale(0.97);
         transition: 100ms;
     }
+}
+
+.switch-background {
+    font-size: small;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
 }

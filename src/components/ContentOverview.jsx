@@ -10,11 +10,11 @@ export const ContentOverview = () => {
     return (
         <div className='content-overview'>
             {miniCards}
+            {/* {miniCards}
             {miniCards}
             {miniCards}
             {miniCards}
-            {miniCards}
-            {miniCards}
+            {miniCards} */}
         </div>
     );
 };
