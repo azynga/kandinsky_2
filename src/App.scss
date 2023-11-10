@@ -241,13 +241,19 @@ main {
         position: relative;
 
         img {
-            width: 40px;
+            width: 30px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             transition: top 100ms;
         }
+
+        // div {
+        //     display: flex;
+        //     flex-direction: column;
+        //     gap: 5px;
+        // }
     }
 
     button {
