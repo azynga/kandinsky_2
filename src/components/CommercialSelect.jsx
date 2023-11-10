@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ContentContext } from '../App';
 
 export const CommercialSelect = () => {
@@ -7,11 +7,14 @@ export const CommercialSelect = () => {
         useContext(ContentContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleClick = (commercialViewSelection) => {
         setIsCommercialView(commercialViewSelection);
         setTimeout(() => {
-            navigate(`/${teamSelection}`);
+            if (location.pathname === '/') {
+                navigate(`/${teamSelection}`);
+            }
         }, 200);
     };
 

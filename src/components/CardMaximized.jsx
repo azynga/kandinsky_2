@@ -9,6 +9,7 @@ import {
 import { ContentContext } from '../App';
 import { CardRouter } from '../router/CardRouter';
 import { getKebabCase } from '../helper/format-path';
+import closeIcon from '../assets/icons/close-icon.png';
 
 export const CardMaximized = () => {
     const { selectedContent, teamSelection } = useContext(ContentContext);
@@ -42,14 +43,12 @@ export const CardMaximized = () => {
                 <ul>{categoryLinks}</ul>
             </nav>
             <div className='card-content'>
-                <Link to={`/${useLocation().pathname.split('/')[1]}`}>
-                    <span title='Close' className='close-button'>
-                        X
-                    </span>
-                </Link>
                 <h2>{card?.cardTitle}</h2>
                 {card && <CardRouter card={card} />}
             </div>
+            <Link to={`/${useLocation().pathname.split('/')[1]}`}>
+                <img src={closeIcon} className='close-button' alt='close' />
+            </Link>
         </div>
     );
 };

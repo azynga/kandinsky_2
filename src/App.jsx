@@ -8,6 +8,8 @@ import { loadData } from './helper/load-data';
 import { getContentList } from './helper/get-content-list';
 import { createSearchInstance } from './helper/search';
 import './App.scss';
+import csBackgroundGraphic from './assets/backgrounds/cs-background-shapes.png';
+import tsBackgroundGraphic from './assets/backgrounds/ts-background-shapes.png';
 
 export const ContentContext = createContext();
 
@@ -61,13 +63,13 @@ function App() {
                 id='main-container'
                 className={
                     useLocation().pathname === '/'
-                        ? 'homepage ' + teamSelection + ' ' + background
-                        : teamSelection + ' ' + background
+                        ? 'homepage ' + teamSelection
+                        : teamSelection
                 }
             >
                 <main>
-                    {!onRoot && <Search />}
                     {!onRoot && <ClosingClickzone />}
+                    {!onRoot && <Search />}
                     {errorMessage ? (
                         <p>{errorMessage}</p>
                     ) : !contentHierarchy ? (
@@ -85,16 +87,6 @@ function App() {
                         </p>
                     </footer>
                 )}
-                <button
-                    className='switch-background'
-                    onClick={() =>
-                        setBackground(
-                            background === 'plain' ? 'image' : 'plain'
-                        )
-                    }
-                >
-                    Switch background
-                </button>
             </div>
         </ContentContext.Provider>
     );

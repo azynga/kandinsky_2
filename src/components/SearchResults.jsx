@@ -4,9 +4,15 @@ import { ContentContext } from '../App';
 import { getKebabCase, getSnakeCase } from '../helper/format-path';
 
 const getContainingUrl = (link, team) => {
-    const resultUrl = getKebabCase(
-        link.path.split(' > ').reverse().splice(0, 2).join('/')
-    );
+    // const resultUrl = getKebabCase(
+    //     link.path.split(' > ').reverse().splice(0, 2).join('/')
+    // );
+    const resultUrl = link.path
+        .split(' > ')
+        .map((pathElement) => getKebabCase(pathElement))
+        .reverse()
+        .splice(0, 2)
+        .join('/');
     const highlightedLink = getSnakeCase(link.path.split(' > ')[0]);
     return `${team}/${resultUrl}?highlight=${highlightedLink}`;
 };

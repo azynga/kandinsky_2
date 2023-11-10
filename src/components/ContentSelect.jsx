@@ -24,9 +24,6 @@ export const ContentSelect = () => {
                 <h2>Choose your own team:</h2>
                 <CommercialSelect />
             </div>
-            {/* <button className='button confirm' onClick={handleConfirm}>
-                Confirm
-            </button> */}
         </div>
     );
 };
