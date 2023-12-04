@@ -12,15 +12,16 @@ export const TeamSelect = () => {
                 }
                 onClick={() => setTeamSelection('cs')}
             >
-                Creative
+                Creatives
             </button>
             <button
+                disabled
                 className={
                     teamSelection === 'ts' ? 'button selected' : 'button'
                 }
                 onClick={() => setTeamSelection('ts')}
             >
-                Technical
+                Technicals (Coming soon)
             </button>
         </div>
     );

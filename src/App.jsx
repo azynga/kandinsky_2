@@ -79,14 +79,14 @@ function App() {
                     )}
                 </main>
                 {!onRoot && <SideBar />}
-                {!onRoot && (
+                {/* {!onRoot && (
                     <footer>
                         <p>
                             Please let us know here what we’re missing. Thank
                             you!
                         </p>
                     </footer>
-                )}
+                )} */}
             </div>
         </ContentContext.Provider>
     );

@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { getSnakeCase } from '../helper/format-path';
+import parse from 'html-react-parser';
 
 export const Topic = ({ topic }) => {
     const queryParameters = new URLSearchParams(useLocation().search);
@@ -23,6 +24,7 @@ export const Topic = ({ topic }) => {
     return (
         <div className='topic'>
             <h4>{topic.topicTitle}</h4>
+            <h5>{parse(topic.topicDescription)}</h5>
             <ul>{links}</ul>
         </div>
     );

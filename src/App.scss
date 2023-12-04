@@ -36,7 +36,7 @@ $csaccent: #c8844d;
 
 h1,
 h2 {
-    font-family: HurmeGeometricBlack;
+    font-family: HurmeGeometric;
     font-weight: bold;
 }
 
@@ -186,9 +186,10 @@ main {
 
             button {
                 width: 242px;
-                border: solid 2px $light;
+                border: solid 1px $light;
                 &:hover {
-                    // opacity: 0.75;
+                    background-color: $light;
+                    color: $dark;
                 }
             }
         }
@@ -200,7 +201,7 @@ main {
     width: 70px;
     position: fixed;
     inset: 0 0 0;
-    background-color: rgb(20, 20, 20);
+    background-color: black;
     color: #f2efeb;
     // padding: 0 0;
     overflow: hidden;
@@ -211,7 +212,7 @@ main {
     transition-delay: 100ms;
 
     &:hover {
-        width: 100px;
+        width: 110px;
         transition: width 200ms;
 
         img {
@@ -229,9 +230,10 @@ main {
     a {
         * {
             margin: 0;
+            // display: contents;
         }
         border-bottom: solid $light 2px;
-        height: 8rem;
+        height: 10rem;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -270,15 +272,20 @@ main {
 
     p,
     #sidebar-select > div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         opacity: 0;
         font-size: small;
-        margin: 0.5rem 0;
+        // margin: 0.5rem 0;
         transition: opacity 100ms;
-        // transition-delay: 50ms;
         color: $light;
         position: absolute;
-        bottom: 1rem;
-        // transition: top 100ms;
+        bottom: 2rem;
+        // > button {
+        //     background-color: red;
+        //     padding: 5px 0;
+        // }
     }
 
     &:hover p,
@@ -362,7 +369,7 @@ footer {
 
     nav {
         height: 100%;
-        background-color: rgb(20, 20, 20);
+        background-color: black;
         width: 30%;
         min-width: 175px;
 
@@ -384,7 +391,12 @@ footer {
 
         a.active {
             text-decoration: underline;
-            color: white;
+            &.ts {
+                color: #4fab80;
+            }
+            &.cs {
+                color: #eb5e29;
+            }
         }
     }
 
@@ -542,7 +554,7 @@ footer {
     width: 200px;
     padding: 1rem;
     margin: 3px 0.5rem;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
     background-color: black;
     color: $light;

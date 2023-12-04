@@ -26,7 +26,7 @@ export const CommercialSelect = () => {
                 }
                 onClick={() => handleClick(true)}
             >
-                Commercial
+                Commercials
             </button>
             <button
                 className={
@@ -34,7 +34,7 @@ export const CommercialSelect = () => {
                 }
                 onClick={() => handleClick(false)}
             >
-                {teamSelection === 'cs' ? 'Creative' : 'Technical'}
+                {teamSelection === 'cs' ? 'Creatives' : 'Technicals'}
             </button>
         </div>
     );

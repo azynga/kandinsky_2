@@ -18,6 +18,7 @@ export const CardMaximized = () => {
     const card = selectedContent?.find(
         (card) => getKebabCase(card.cardTitle) === cardKebabCase
     );
+    const currentTeam = useLocation().pathname.split('/')[1];
     useEffect(() => {
         if (!card) {
             if (!selectedContent) {
@@ -30,7 +31,10 @@ export const CardMaximized = () => {
     const categoryLinks = card?.categories.map(({ categoryTitle }) => {
         return (
             <li key={categoryTitle}>
-                <NavLink to={getKebabCase(categoryTitle)}>
+                <NavLink
+                    to={getKebabCase(categoryTitle)}
+                    className={teamSelection === 'ts' ? 'ts' : 'cs'}
+                >
                     {categoryTitle}
                 </NavLink>
             </li>
@@ -46,7 +50,7 @@ export const CardMaximized = () => {
                 <h2>{card?.cardTitle}</h2>
                 {card && <CardRouter card={card} />}
             </div>
-            <Link to={`/${useLocation().pathname.split('/')[1]}`}>
+            <Link to={`/${currentTeam}`}>
                 <img src={closeIcon} className='close-button' alt='close' />
             </Link>
         </div>
