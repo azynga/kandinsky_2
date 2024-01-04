@@ -8,8 +8,6 @@ import { loadData } from './helper/load-data';
 import { getContentList } from './helper/get-content-list';
 import { createSearchInstance } from './helper/search';
 import './App.scss';
-import csBackgroundGraphic from './assets/backgrounds/cs-background-shapes.png';
-import tsBackgroundGraphic from './assets/backgrounds/ts-background-shapes.png';
 
 export const ContentContext = createContext();
 

@@ -1,14 +1,25 @@
-$dark: #2a2e34;
-$light: #faf7f5;
-$accent: #59a9ac;
-$tsaccent: #59a9ac;
-$csaccent: #c8844d;
+$blue: #006cd6;
+$orange: #fe5000;
+$grey: #f1ece7;
 
-@mixin shadow {
-    box-shadow: 0 0 1rem #2a2e3440;
+$card-orange: #ff6429;
+$card-yellow: #f1bd44;
+$card-lightorange: #f38928;
+
+.orange {
+    background-color: $card-orange;
 }
-@mixin hover-shadow {
-    box-shadow: 0 5px 2rem #2a2e3440;
+
+.yellow {
+    background-color: $card-yellow;
+}
+
+.light-orange {
+    background-color: $card-lightorange;
+}
+
+.grey {
+    background-color: $grey;
 }
 
 @font-face {
@@ -42,7 +53,6 @@ h2 {
 
 body {
     margin: 0;
-    // font-family: HurmeGeometric, Verdana, sans-serif;
 }
 
 .content-overview {
@@ -58,7 +68,7 @@ body {
 
 a:not(.topics a) {
     text-decoration: none;
-    color: $dark;
+    color: black;
 }
 
 #main-container {
@@ -67,47 +77,33 @@ a:not(.topics a) {
     right: 0;
     left: 0;
     margin-left: 70px;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    background-image: url('./assets/backgrounds/pattern-background.png'),
+        radial-gradient(circle, #221d1d, #151212);
+
     &.homepage {
         margin-left: 0;
-        color: $light;
+        color: white;
         main {
             min-height: 100vh;
         }
+        background-image: url('./assets/backgrounds/background-shapes.png'),
+            radial-gradient(circle, #221d1d, #151212);
     }
 
-    &.ts {
-        background-image: url('./assets/backgrounds/ts-background-shapes.png'),
-            radial-gradient(circle, #42464a, #282a2d);
+    // &.ts {
+    //     background-image: url('./assets/backgrounds/ts-background-shapes.png'),
+    //         radial-gradient(circle, #151212, #151212);
+    // }
 
-        // background-image: radial-gradient(
-        //     circle,
-        //     adjust-color($tsaccent, $lightness: 20%),
-        //     $tsaccent
-        // );
-
-        // radial-gradient(circle,#42464A,#282A2D);
-
-        // &.image {
-        //     background-image: url('./assets/backgrounds/ts-background-shapes.png');
-        // }
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: bottom left;
-    }
-
-    &.cs {
-        background-image: url('./assets/backgrounds/cs-background-shapes.png'),
-            radial-gradient(circle, #42464a, #282a2d);
-        // &.image {
-        //     background-image: url('./assets/backgrounds/cs-background-shapes.png');
-        // }
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: bottom left;
-        // background-repeat: no-repeat;
-    }
+    // &.cs {
+    //     background-image: url('./assets/backgrounds/BG-SHAPES.png'),
+    //         radial-gradient(circle, #151212, #161313);
+    // }
 }
 
 main {
@@ -116,7 +112,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
     z-index: 1;
 
     @media (max-width: 872px) {
@@ -128,13 +124,12 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // gap: 1rem;
         position: absolute;
         inset: 0;
         height: 100%;
 
         > .logo {
-            width: 70px;
+            width: 60px;
         }
 
         > div {
@@ -160,16 +155,15 @@ main {
                 align-items: center;
                 width: 100%;
                 > button {
-                    // width: 100%;
                     width: 242px;
-                    background-color: #202020;
-                    color: #818181;
+                    background-color: black;
+                    color: white;
+                    opacity: 0.5;
 
-                    // opacity: 0.5;
                     &.selected {
-                        background-color: #000000;
-                        color: $light;
-                        // box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+                        background-color: $blue;
+                        color: white;
+                        opacity: 1;
                     }
                 }
             }
@@ -177,7 +171,7 @@ main {
 
         > .commercial-select {
             h2 {
-                margin: 2rem 0;
+                margin: 3rem 0;
             }
 
             > div {
@@ -186,10 +180,10 @@ main {
 
             button {
                 width: 242px;
-                border: solid 1px $light;
+                border: solid 2px white;
                 &:hover {
-                    background-color: $light;
-                    color: $dark;
+                    background-color: white;
+                    color: black;
                 }
             }
         }
@@ -203,7 +197,6 @@ main {
     inset: 0 0 0;
     background-color: black;
     color: #f2efeb;
-    // padding: 0 0;
     overflow: hidden;
     transition: width 200ms;
     display: flex;
@@ -220,19 +213,14 @@ main {
             transition: top 100ms;
             transition-delay: 100ms;
         }
-        // div,
-        // p {
-        //     bottom: 30%;
-        // }
     }
 
     > div,
     a {
         * {
             margin: 0;
-            // display: contents;
         }
-        border-bottom: solid $light 2px;
+        border-bottom: solid white 2px;
         height: 10rem;
         width: 100%;
         display: flex;
@@ -250,12 +238,6 @@ main {
             transform: translate(-50%, -50%);
             transition: top 100ms;
         }
-
-        // div {
-        //     display: flex;
-        //     flex-direction: column;
-        //     gap: 5px;
-        // }
     }
 
     button {
@@ -277,15 +259,10 @@ main {
         gap: 10px;
         opacity: 0;
         font-size: small;
-        // margin: 0.5rem 0;
         transition: opacity 100ms;
-        color: $light;
+        color: white;
         position: absolute;
         bottom: 2rem;
-        // > button {
-        //     background-color: red;
-        //     padding: 5px 0;
-        // }
     }
 
     &:hover p,
@@ -297,7 +274,7 @@ main {
 }
 
 footer {
-    color: $light;
+    color: white;
     margin: 1rem 0 2rem;
     position: relative;
     width: 100%;
@@ -311,16 +288,17 @@ footer {
     width: 100%;
     max-width: 1000px;
     display: flex;
-    @include shadow;
     overflow: hidden;
     border-radius: 0.5rem;
-    background-color: $light;
+    background-color: white;
     position: relative;
     z-index: 0;
     font-size: small;
 
     h2 {
         margin: 0;
+        color: $orange;
+        font-size: xx-large;
     }
 
     .card-content {
@@ -346,11 +324,11 @@ footer {
                 padding: 2px 0;
                 &.highlight {
                     padding: 2px 5px;
-                    background-color: #7bf183;
+                    background-color: $orange;
                     border-radius: 2px;
                     a {
                         text-decoration: none;
-                        color: $dark;
+                        color: white;
                     }
                 }
             }
@@ -359,43 +337,41 @@ footer {
                 color: #006cd6;
             }
             a:hover {
-                color: #0080ff;
+                color: adjust-color($color: #006cd6, $lightness: 20%);
             }
             a:active {
-                color: $dark;
+                color: black;
             }
         }
     }
 
     nav {
         height: 100%;
-        background-color: black;
+        background-color: $grey;
         width: 30%;
         min-width: 175px;
 
         ul {
             font-size: small;
             margin: 0;
-            padding: 6rem 1rem 1rem 2rem;
+            padding: 3rem 1rem 0 0;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-        }
+            gap: 0.5rem;
+            list-style: none;
 
-        li,
-        a {
-            color: $light;
-            font-weight: bold;
-            color: $light;
-        }
-
-        a.active {
-            text-decoration: underline;
-            &.ts {
-                color: #4fab80;
+            a {
+                display: block;
+                // width: 100%;
+                padding: 12px 1rem 12px 2rem;
+                color: black;
+                font-weight: bold;
             }
-            &.cs {
-                color: #eb5e29;
+
+            a.active {
+                background-color: $blue;
+                border-radius: 0 5px 5px 0;
+                color: white;
             }
         }
     }
@@ -424,10 +400,8 @@ footer {
     font-size: small;
     padding: 1rem;
     border-radius: 0.5rem;
-    background-color: $light;
     position: relative;
     top: 0;
-    @include shadow;
     transition: box-shadow, top, background-color, 200ms 5ms;
     display: flex;
     flex-direction: column-reverse;
@@ -446,7 +420,7 @@ footer {
     }
 
     ul {
-        color: gray;
+        opacity: 0.7;
         padding: 0 1rem;
         li {
             margin: 0.5rem 0;
@@ -454,11 +428,9 @@ footer {
     }
 
     &:hover {
-        color: $dark;
         background-color: white;
-        @include hover-shadow;
         top: -5px;
-        transition: box-shadow, top, background-color, 200ms 5ms;
+        transition: top, background-color, 200ms 5ms;
     }
 }
 
@@ -495,15 +467,13 @@ footer {
         font-size: medium;
         border-radius: 5px;
         border-style: none;
-        background-color: $light;
+        background-color: white;
         transition: box-shadow, background-color, 400ms;
-        @include shadow;
         &::placeholder {
             opacity: 0.5;
         }
         &:focus {
             outline: none;
-            @include hover-shadow;
             background-color: white;
             transition: box-shadow, background-color, 400ms;
         }
@@ -523,7 +493,7 @@ footer {
     z-index: 2;
     border-radius: 5px;
     overflow: hidden;
-    @include shadow;
+    box-shadow: 0 0 1rem #2a2e3440;
 }
 
 .search-results > a {
@@ -531,23 +501,11 @@ footer {
     padding: 0.5rem;
     width: 100%;
     border-bottom: solid #2a2e3429 1px;
-    background-color: $light;
+    background-color: white;
 }
 
-.ts .search-results > a:hover {
-    background-color: adjust-color(
-        $tsaccent,
-        $lightness: 30%,
-        $saturation: -20%
-    );
-}
-
-.cs .search-results > a:hover {
-    background-color: adjust-color(
-        $csaccent,
-        $lightness: 30%,
-        $saturation: -20%
-    );
+.search-results > a:hover {
+    background-color: adjust-color($blue, $lightness: 30%, $saturation: -20%);
 }
 
 .button {
@@ -556,18 +514,13 @@ footer {
     margin: 3px 0.5rem;
     border-radius: 5px;
     border: none;
-    background-color: black;
-    color: $light;
-    // opacity: 0.5;
+    background-color: $blue;
+    color: white;
     position: relative;
     transition: 200ms;
     font-weight: bold;
 
     &:hover {
-        &:not(.selected, :active) {
-            // opacity: 0.75;
-        }
-        transform: scale(1.02);
         transition: 200ms;
     }
 

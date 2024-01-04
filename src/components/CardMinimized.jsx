@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getKebabCase } from '../helper/format-path';
 
-export const CardMinimized = ({ card }) => {
+export const CardMinimized = ({ card, color }) => {
     const { cardTitle, cardDescription, categories } = card;
     const categoryList = categories.map((category) => {
         const { categoryTitle } = category;
@@ -10,7 +10,7 @@ export const CardMinimized = ({ card }) => {
 
     return (
         <Link to={getKebabCase(cardTitle)}>
-            <div className='minicard'>
+            <div className={`minicard ${color}`}>
                 <div className='minicard-headline'>
                     <h2>{cardTitle}</h2>
                     <h3>{cardDescription}</h3>
