@@ -6,22 +6,6 @@ $card-orange: #ff6429;
 $card-yellow: #f1bd44;
 $card-lightorange: #f38928;
 
-.orange {
-    background-color: $card-orange;
-}
-
-.yellow {
-    background-color: $card-yellow;
-}
-
-.light-orange {
-    background-color: $card-lightorange;
-}
-
-.grey {
-    background-color: $grey;
-}
-
 @font-face {
     font-family: HurmeGeometric;
     src: url('./assets/fonts/HurmeGeometricSans1_Regular.otf');
@@ -37,6 +21,22 @@ $card-lightorange: #f38928;
     font-family: HurmeGeometric;
     src: url('./assets/fonts/HurmeGeometricSans1_Bold.otf');
     font-weight: bold;
+}
+
+.orange {
+    background-color: $card-orange;
+}
+
+.yellow {
+    background-color: $card-yellow;
+}
+
+.light-orange {
+    background-color: $card-lightorange;
+}
+
+.grey {
+    background-color: $grey;
 }
 
 * {
@@ -94,30 +94,16 @@ a:not(.topics a) {
         background-image: url('./assets/backgrounds/background-shapes.png'),
             radial-gradient(circle, #221d1d, #151212);
     }
-
-    // &.ts {
-    //     background-image: url('./assets/backgrounds/ts-background-shapes.png'),
-    //         radial-gradient(circle, #151212, #151212);
-    // }
-
-    // &.cs {
-    //     background-image: url('./assets/backgrounds/BG-SHAPES.png'),
-    //         radial-gradient(circle, #151212, #161313);
-    // }
 }
 
 main {
     position: relative;
-    padding: 3rem 5rem;
+    padding: 3rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
     z-index: 1;
-
-    @media (max-width: 872px) {
-        padding: 3rem 1rem;
-    }
 
     #content-select {
         display: flex;
@@ -273,16 +259,6 @@ main {
     }
 }
 
-footer {
-    color: white;
-    margin: 1rem 0 2rem;
-    position: relative;
-    width: 100%;
-    font-size: small;
-    text-align: center;
-    z-index: 0;
-}
-
 .card {
     height: 500px;
     width: 100%;
@@ -309,7 +285,7 @@ footer {
         .topics {
             display: flex;
             gap: 2rem;
-            @media (max-width: 872px) {
+            @media (max-width: 950px) {
                 flex-direction: column;
             }
 
@@ -362,7 +338,6 @@ footer {
 
             a {
                 display: block;
-                // width: 100%;
                 padding: 12px 1rem 12px 2rem;
                 color: black;
                 font-weight: bold;
@@ -530,12 +505,4 @@ footer {
         transform: scale(0.97);
         transition: 100ms;
     }
-}
-
-.switch-background {
-    font-size: small;
-    position: absolute;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 99;
 }

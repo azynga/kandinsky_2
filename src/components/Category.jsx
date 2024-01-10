@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Topic } from './Topic';
 import { getKebabCase } from '../helper/format-path';
+import parse from 'html-react-parser';
 
 export const Category = ({ card }) => {
     const categoryKebabCase = useParams().category;
@@ -13,6 +14,7 @@ export const Category = ({ card }) => {
     return (
         <div className='category'>
             <h3>{category?.categoryTitle}</h3>
+            <p>{parse(category?.categoryDescription)}</p>
             <div className='topics'>{topics}</div>
         </div>
     );

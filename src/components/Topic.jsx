@@ -24,7 +24,7 @@ export const Topic = ({ topic }) => {
     return (
         <div className='topic'>
             <h4>{topic.topicTitle}</h4>
-            <h5>{parse(topic.topicDescription)}</h5>
+            <p>{parse(topic.topicDescription)}</p>
             <ul>{links}</ul>
         </div>
     );

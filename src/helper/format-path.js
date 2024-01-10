@@ -1,7 +1,3 @@
-// export const getKebabCase = (title) => {
-//     return title.trim().split(' ').join('-').toLowerCase();
-// };
-
 export const getKebabCase = (title) => {
     const alphanumericMatch = title.match(/[\w ]/g);
     if (!alphanumericMatch) {
